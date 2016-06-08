@@ -1,7 +1,18 @@
 package compo
 
-interface CheckDeleteable {
+abstract class CheckDeleteable {
 
-    boolean isDelateAble()
+    DeleteableStatus deleteStatus
 
+    enum DeleteableStatus {
+        DELETEABLE, NOTDELETEABLE
+    }
+
+    boolean isDelateAble() {
+        if (deleteStatus == DeleteableStatus.DELETEABLE) {
+            true
+        } else {
+            false
+        }
+    }
 }

@@ -1,13 +1,8 @@
 package compo
 
-class Company implements CheckDeleteable {
-
-    enum DeleteableStatus {
-        DELETEABLE, NOTDELETEABLE
-    }
+class Company extends CheckDeleteable {
 
     String name
-    DeleteableStatus deleteStatus
 
     static hasMany = [persons: Person]
 
@@ -15,14 +10,5 @@ class Company implements CheckDeleteable {
     static constraints = {
     }
 
-
-    @Override
-    boolean isDelateAble() {
-        if (deleteStatus == DeleteableStatus.DELETEABLE) {
-            true
-        } else {
-            false
-        }
-    }
 
 }
